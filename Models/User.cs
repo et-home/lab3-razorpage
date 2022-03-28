@@ -50,7 +50,7 @@ public class User
     [StringLength(2, ErrorMessage = "Use 2 letters notation")]
     public string? Province { get; set; }
 
-    [RegularExpression(@"^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$")]
+    [RegularExpression(@"^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$", ErrorMessage = "Phone number format is incorrect!")]
     public string? Phone { get; set; }
 
 }
