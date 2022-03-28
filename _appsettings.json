@@ -1,0 +1,13 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "DBContext": "Server=localhost;username=username;password=password;Database=database_name"
+  }, 
+  "DBMSVersion": "database_version"
+}
