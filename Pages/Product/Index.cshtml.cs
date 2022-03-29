@@ -19,7 +19,7 @@ namespace ProductModel
             _context = context;
         }
 
-        public IList<Product> Product { get;set; }
+        public IList<Product> Product { get; set; }
 
         public async Task OnGetAsync()
         {

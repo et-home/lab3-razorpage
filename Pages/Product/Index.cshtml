@@ -1,4 +1,9 @@
 @page
+
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 @model ProductModel.IndexModel
 
 @{
@@ -6,7 +11,6 @@
 }
 
 <h1>Index</h1>
-
 <p>
     <a asp-page="Create">Create New</a>
 </p>
@@ -48,9 +52,16 @@
                     @Html.DisplayFor(modelItem => item.Quantity)
                 </td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.ProductId">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.ProductId">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.ProductId">Delete</a>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <a asp-page="./Edit" asp-route-id="@item.ProductId">Edit</a>
+                        <a asp-page="./Details" asp-route-id="@item.ProductId">Details</a>
+                        <a asp-page="./Delete" asp-route-id="@item.ProductId">Delete</a>
+                    }
+                    else
+                    {
+                        <p>Please <a asp-area="Identity" asp-page="/Account/Login">login</a> to edit products</p>
+                    }
                 </td>
             </tr>
         }
